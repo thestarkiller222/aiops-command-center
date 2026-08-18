@@ -1,5 +1,8 @@
 from fastapi import FastAPI
 
+from backend.app.core.config import settings
+
+
 app = FastAPI(
     title="AIOps Command Center",
     description="AI-powered IT Operations and Incident Management Platform",
@@ -9,4 +12,7 @@ app = FastAPI(
 
 @app.get("/health")
 def health_check():
-    return {"status": "healthy"}
+    return {
+        "status": "healthy",
+        "environment": "development",
+    }
